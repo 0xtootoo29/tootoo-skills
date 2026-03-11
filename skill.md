@@ -220,44 +220,24 @@ X 平台图片规则：
 **公众号**：标题 64 字，正文无限制
 **YouTube**：标题 100 字符，描述 5000 字符
 
-## Skill 映射表（内部使用）
+## Skill 分类逻辑（自动识别）
 
-### 图像生成类
-- 封面/海报 → `poster-design`
-- 知识漫画 → `baoyu-comic`
-- 文档配图 → `document-illustrator`
+Skill Router 会自动扫描 `~/.claude/skills/` 目录，根据每个 skill 的 description 和 trigger_words 进行分类。
 
-### 写作创作类
-- 采访式创作 → `content-creator`
-- 深度思考大纲 → `interview2w`
-- 编辑文本 → `quweier-zh`
-- 提取洞察 → `extract-wisdom`
+### 分类关键词
+- **图像生成**：image, poster, comic, illustrator, design, 图, 海报, 漫画
+- **写作创作**：write, content, article, creator, 写作, 文章, 创作
+- **内容分发**：publish, post, distribute, platform, 发布, 分发
+- **开发工具**：api, frontend, database, code, 开发, 代码
+- **知识管理**：research, download, convert, knowledge, 研究, 下载, 转换
+- **AI 工具**：skill, mcp, agent, claude, 工具
 
-### 内容分发类
-- （待安装对应平台的 skills）
-
-### 开发工具类
-- API 设计 → `api-design-principles`
-- 前端界面 → `frontend-design`
-- 数据库设计 → `postgresql`
-- 代码审查 → `code-review-router`
-
-### 知识管理类
-- 快速调研 → `research`
-- YouTube 下载 → `yt-search-download`
-- 格式转换 → `logseq-to-obsidian`
-- GitHub 知识库 → `github-kb`
-
-### AI 工具管理类
-- 创建/优化 Skill → `tootoo-skill-creator`
-- 搜索 Skills/MCP → `search-github-skills`
-- 发布 Skill → `skill-publisher`
-- 优化 CLAUDE.md → `claude-md-improver`
-- 会话分析 → `evolver`
+### 示例
+如果一个 skill 的 description 包含 "poster design for social media"，它会被自动归类到"图像生成类"。
 
 ## 学习用户偏好
 
-每次交互后，记录到 `/Users/papa/.claude/projects/-Users-papa-Documents-000----------/memory/skill-router-rules.md`：
+每次交互后，记录到项目的 memory 目录：
 
 ```markdown
 📝 偏好记录：
@@ -268,19 +248,11 @@ X 平台图片规则：
 
 ## 动态扫描新 Skills
 
-每次运行时，扫描 `/Users/papa/.claude/skills/` 目录：
+每次运行时，扫描 `~/.claude/skills/` 目录：
 1. 读取每个 skill 的 skill.md
 2. 提取 description 和 trigger_words
 3. 根据关键词自动分类
 4. 如果发现新的同类 skill，自动添加到选项中
-
-**分类关键词**：
-- 图像生成：image, poster, comic, illustrator, design, 图, 海报, 漫画
-- 写作创作：write, content, article, creator, 写作, 文章, 创作
-- 内容分发：publish, post, distribute, platform, 发布, 分发
-- 开发工具：api, frontend, database, code, 开发, 代码
-- 知识管理：research, download, convert, knowledge, 研究, 下载, 转换
-- AI 工具：skill, mcp, agent, claude, 工具
 
 ## 示例对话
 
@@ -311,11 +283,11 @@ X 平台图片规则：
 
 **你**：
 ```
-✅ 为您推荐：采访式内容创作工具 (`content-creator`)
+✅ 为您推荐：采访式内容创作工具 (`interview-creator`)
 
 这个工具会通过半结构化采访，将您的灵感、素材转化为可分发的内容。
 
-🚀 我现在就帮您启动 `content-creator`？
+🚀 我现在就帮您启动 `interview-creator`？
 ```
 
 ## 注意事项

@@ -18,8 +18,10 @@ When you install many Claude Code Skills, you face these problems:
 
 ## How to Use
 
-After installation, simply describe what you want to do in natural language:
+After installation, Skill Router works automatically when you describe what you want to do in natural language.
 
+### Step 1: Describe Your Intent
+Simply say what you want to do (examples):
 ```
 "生图" / "generate image"
 "写文章" / "write article"
@@ -27,11 +29,19 @@ After installation, simply describe what you want to do in natural language:
 "帮我选个 skill" / "help me choose a skill"
 ```
 
-Skill Router will:
-1. Understand your intent
-2. Ask clarifying questions through clickable options
-3. Recommend the most suitable skill
-4. Show platform-specific rules if applicable
+### Step 2: Answer Questions
+Skill Router will ask clarifying questions through **clickable option cards**. For example:
+- "What type of image do you want?" → Choose from: Poster, Comic, Illustration
+- "Which platform?" → Choose from: X, 小红书, WeChat, YouTube
+
+### Step 3: Get Recommendation
+Skill Router will recommend the best skill with:
+- Plain language description of what it does
+- Technical skill name (e.g., `image-generator`)
+- Platform-specific rules if applicable (e.g., "X requires 16:9 or 1:1 ratio")
+
+### Step 4: Confirm Launch
+Simply confirm and Skill Router will launch the recommended skill for you.
 
 ## Core Features
 
@@ -39,7 +49,7 @@ Skill Router will:
 **Automatically scans your `~/.claude/skills/` directory** every time it runs. Newly installed skills are immediately available — no configuration needed.
 
 ### 🎯 Smart Classification
-Analyzes each skill's description and trigger words to categorize them:
+Analyzes each skill's description and trigger words to automatically categorize them. **Examples of categories:**
 - Image generation (poster, comic, illustration)
 - Content creation (writing, editing, extraction)
 - Content distribution (X, 小红书, WeChat, YouTube)
@@ -51,7 +61,7 @@ Analyzes each skill's description and trigger words to categorize them:
 Uses clickable option cards instead of text input — faster and more intuitive.
 
 ### 📐 Platform Rules
-Shows platform-specific requirements when relevant:
+Shows platform-specific requirements when relevant. **Examples:**
 - **X (Twitter)**: 16:9 or 1:1, <5MB
 - **小红书**: 3:4 vertical, <10MB
 - **公众号**: 16:9, <2MB

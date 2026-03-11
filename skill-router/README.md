@@ -1,5 +1,7 @@
 # Skill Router
 
+English | [简体中文](./README.zh.md)
+
 Smart skill router for Claude Code — helps you find the right skill through interactive Q&A.
 
 ## Why Skill Router?
